@@ -25,9 +25,9 @@ def product_dynamic_lookup_view (request, my_id):
 
 def product_delete_view(request, my_id):
 	obj = get_object_or_404(Product, id=my_id)
-	if request.method == 'POST':
+	if request.method == "POST":
 		obj.delete()
-		return redirect('../../')
+		return redirect('../')
 	context = {
 		'object' : obj
 	}
