@@ -27,9 +27,9 @@ def product_delete_view(request, my_id):
 	obj = get_object_or_404(Product, id=my_id)
 	if request.method == "POST":
 		obj.delete()
-		return redirect('../')
+		# return redirect('../../')
 	context = {
-		'object' : obj
+		"object" : obj
 	}
 	return render(request, "products/product_delete.html", context)
 
@@ -50,3 +50,10 @@ def product_detail_view(request):
 		'description' : obj.description
 	}
 	return render(request, "products/product_detail.html", context)
+
+def product_list_view(request):
+	querylist = Product.objects.all()
+	context = {
+		"object_list" : querylist
+	}
+	return render(request, "products/product_list.html", context)
