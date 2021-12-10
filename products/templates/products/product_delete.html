@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ object.title }}</h1>
+<p>{{ object.description }}</p>
+<p>{{ object.price }}</p>
+
+<form action="." method="POST">{% csrf_token %}
+	<h1>Do you want to delete the product: {{ object.title }}?</h1>
+	<p><input type="submit" value="Yes"/><a href="../">Cancel</a></p>
+</form>
+
+{% endblock %}	
